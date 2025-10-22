@@ -16,36 +16,36 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myImageView.userInteractionEnabled = true
+        myImageView.isUserInteractionEnabled = true
         
         //Tap
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         myImageView.addGestureRecognizer(tapGesture)
         
         //Pinch Zoom
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
         myImageView.addGestureRecognizer(pinchGesture)
         
         //Rotate
-        let rotationGesture = UIRotationGestureRecognizer(target: self, action: "handleRotation:")
+        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation))
         myImageView.addGestureRecognizer(rotationGesture)
         
         //Pan Translation
-        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         myImageView.addGestureRecognizer(panGesture)
         
         //Swipe
-        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        leftSwipeGesture.direction = .Left
+        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        leftSwipeGesture.direction = .left
         
-        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        rightSwipeGesture.direction = .Right
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        rightSwipeGesture.direction = .right
         
-        let upSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        upSwipeGesture.direction = .Up
+        let upSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        upSwipeGesture.direction = .up
         
-        let downSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        downSwipeGesture.direction = .Down
+        let downSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        downSwipeGesture.direction = .down
         
         self.swipeView.addGestureRecognizer(leftSwipeGesture)
         self.swipeView.addGestureRecognizer(rightSwipeGesture)
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         
         //Long press
         
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGesture.minimumPressDuration = 1.0
         self.swipeView.addGestureRecognizer(longPressGesture)
 
@@ -66,44 +66,44 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func handleTap(recognizer:UITapGestureRecognizer){
+    @objc func handleTap(recognizer:UITapGestureRecognizer){
         print("Image Tapped")
     }
 
-    func handlePinch(recognizer:UIPinchGestureRecognizer){
+    @objc func handlePinch(recognizer:UIPinchGestureRecognizer){
         guard let view = recognizer.view else{return}
         view.transform = CGAffineTransformScale(view.transform, recognizer.scale, recognizer.scale)
         recognizer.scale = 1.0
     }
     
-    func handleRotation(recognizer:UIRotationGestureRecognizer){
+    @objc func handleRotation(recognizer:UIRotationGestureRecognizer){
         guard let view = recognizer.view else {return}
         view.transform = CGAffineTransformRotate(view.transform, recognizer.rotation)
         recognizer.rotation = 0
     }
     
-    func handlePan(recognizer:UIPanGestureRecognizer){
-        let translation = recognizer.translationInView(self.view)
+    @objc func handlePan(recognizer:UIPanGestureRecognizer){
+        let translation = recognizer.translation(in: self.view)
         guard let view = recognizer.view else{return}
         view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.view)
+        recognizer.setTranslation(CGPointZero, in: self.view)
     }
     
-    func handleSwipe(recognizer:UISwipeGestureRecognizer){
-        switch recognizer.direction{
-        case UISwipeGestureRecognizerDirection.Left:
+    @objc func handleSwipe(recognizer:UISwipeGestureRecognizer){
+        switch recognizer.direction {
+        case .left:
             self.directionLabel.text = "Left"
             break
             
-        case UISwipeGestureRecognizerDirection.Right:
+        case .right:
             self.directionLabel.text = "Right"
             break
             
-        case UISwipeGestureRecognizerDirection.Up:
+        case .up:
             self.directionLabel.text = "Up"
             break
             
-        case UISwipeGestureRecognizerDirection.Down:
+        case .down:
             self.directionLabel.text = "Down"
             break
             
@@ -112,24 +112,26 @@ class ViewController: UIViewController {
         }
     }
     
-    func handleLongPress(recognizer:UILongPressGestureRecognizer){
-        if(recognizer.state == .Began){
-            let alert = UIAlertController(title: "Long Press", message: "Yes, It worked!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "YAY", style: .Cancel, handler: { (action:UIAlertAction) -> Void in
+    @objc func handleLongPress(recognizer:UILongPressGestureRecognizer){
+        if(recognizer.state == .began){
+            let alert = UIAlertController(title: "Long Press", message: "Yes, It worked!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "YAY", style: .cancel, handler: { (action:UIAlertAction) -> Void in
                 print("Cancelled")
             }))
-            self.showViewController(alert, sender: nil)
+            self.show(alert, sender: nil)
         }
         
-        if(recognizer.state == .Ended){
+        if(recognizer.state == .ended){
             print("Long Press Ended")
         }
     }
-    @IBAction func pinchZoomButtonAction(sender: AnyObject) {
+
+    @IBAction func pinchAction(_ sender: Any) {
+        let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
         
-        let secondVC = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController") as! SecondViewController
-        
-        self.presentViewController(secondVC, animated: true, completion: nil)
+        secondVC.modalPresentationStyle = .fullScreen
+        self.present(secondVC, animated: true, completion: nil)
+
     }
 }
 

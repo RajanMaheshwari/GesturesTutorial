@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,11 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rose.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XKj-5u-VEf">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="66.666666666666686" y="344.66666666666669" width="260" height="163"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Pfb-Dm-ArY"/>
                                     <constraint firstAttribute="height" constant="163" id="y53-1k-qkk"/>
@@ -37,16 +39,16 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9c-Wt-CFr">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="80" y="636" width="233" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9M-iv-JEz">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <rect key="frame" x="95.666666666666657" y="53.666666666666629" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.055376858420000001" green="0.35525114029999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.055376858420000001" green="0.35525114029999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="5cQ-Mf-Z3u"/>
                                     <constraint firstItem="A9M-iv-JEz" firstAttribute="centerY" secondItem="u9c-Wt-CFr" secondAttribute="centerY" id="6Os-qb-rUJ"/>
@@ -58,8 +60,8 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="5cQ-Mf-Z3u"/>
-                                        <exclude reference="6Os-qb-rUJ"/>
                                         <exclude reference="idq-Fq-f8t"/>
+                                        <exclude reference="6Os-qb-rUJ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -68,20 +70,20 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="5cQ-Mf-Z3u"/>
-                                        <include reference="6Os-qb-rUJ"/>
                                         <include reference="idq-Fq-f8t"/>
+                                        <include reference="6Os-qb-rUJ"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-HL-9KQ">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-HL-9KQ">
+                                <rect key="frame" x="115.66666666666669" y="126" width="162" height="30"/>
                                 <state key="normal" title="Pinch Zoom Scroll View"/>
                                 <connections>
-                                    <action selector="pinchZoomButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CrZ-tV-ykU"/>
+                                    <action selector="pinchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rfw-uU-6J3"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Isz-HL-9KQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8Cb-R9-ceZ"/>
                             <constraint firstItem="XKj-5u-VEf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hat-oD-X0g"/>
@@ -99,12 +101,12 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="zBx-Z0-un6"/>
-                                <exclude reference="8Cb-R9-ceZ"/>
                                 <exclude reference="dz9-DG-0Lz"/>
-                                <exclude reference="Hat-oD-X0g"/>
+                                <exclude reference="8Cb-R9-ceZ"/>
                                 <exclude reference="eJg-NJ-HhI"/>
-                                <exclude reference="ePX-oC-2sh"/>
+                                <exclude reference="Hat-oD-X0g"/>
                                 <exclude reference="yU2-OK-yHh"/>
+                                <exclude reference="ePX-oC-2sh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -115,12 +117,12 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="zBx-Z0-un6"/>
-                                <include reference="8Cb-R9-ceZ"/>
                                 <include reference="dz9-DG-0Lz"/>
-                                <include reference="Hat-oD-X0g"/>
+                                <include reference="8Cb-R9-ceZ"/>
                                 <include reference="eJg-NJ-HhI"/>
-                                <include reference="ePX-oC-2sh"/>
+                                <include reference="Hat-oD-X0g"/>
                                 <include reference="yU2-OK-yHh"/>
+                                <include reference="ePX-oC-2sh"/>
                             </mask>
                         </variation>
                     </view>
@@ -143,14 +145,14 @@
                         <viewControllerLayoutGuide type="bottom" id="7RH-dd-Win"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IyD-C4-SZX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-QN-gCI">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rose.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Sze-pa-vJ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -166,11 +168,11 @@
                                         <exclude reference="Sze-pa-vJ3"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="jqX-CI-bAS"/>
                                         <exclude reference="PWO-Yl-Rq6"/>
-                                        <exclude reference="Str-qb-HR0"/>
                                         <exclude reference="bA5-ug-Nbg"/>
                                         <exclude reference="hm4-vJ-AMs"/>
-                                        <exclude reference="jqX-CI-bAS"/>
+                                        <exclude reference="Str-qb-HR0"/>
                                         <exclude reference="l8i-S9-IBc"/>
                                     </mask>
                                 </variation>
@@ -179,11 +181,11 @@
                                         <include reference="Sze-pa-vJ3"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="jqX-CI-bAS"/>
                                         <include reference="PWO-Yl-Rq6"/>
-                                        <include reference="Str-qb-HR0"/>
                                         <include reference="bA5-ug-Nbg"/>
                                         <include reference="hm4-vJ-AMs"/>
-                                        <include reference="jqX-CI-bAS"/>
+                                        <include reference="Str-qb-HR0"/>
                                         <include reference="l8i-S9-IBc"/>
                                     </mask>
                                 </variation>
@@ -192,7 +194,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lo6-QN-gCI" secondAttribute="trailing" id="2Ke-Fb-fH3"/>
                             <constraint firstItem="lo6-QN-gCI" firstAttribute="leading" secondItem="IyD-C4-SZX" secondAttribute="leading" id="2Oe-iT-PE3"/>
